@@ -24,8 +24,6 @@ words = {
 }
 lst_theme = list(words.keys())
 print(lst_theme)
-# lst_theme = ['Транспорт', 'Зимние вид спорта', 'Летние виды спорта', 'Обезьянки', 'Собаки', 'Крупа',
-# 'Геометрические фигуры', 'Стили изобразительного искусства', 'Физика', 'HARD']
 coor_line = [[100, 50, 100, 300], [100, 50, 230, 50], [100, 80, 130, 50], [70, 300, 130, 300], [230, 50, 230, 80],
              ['oval', 210, 80, 250, 120], ['oval', 210, 120, 250, 200], [240, 130, 280, 100], [220, 130, 180, 100],
              [240, 190, 280, 240], [220, 190, 180, 240]]
@@ -36,7 +34,6 @@ root.geometry('950x480+250+100')
 
 
 def main():
-
     # нажали на "Начать игру"
     def change(event):
         theme = str(lst_theme[r_var.get()])
@@ -86,6 +83,7 @@ def main():
 
 
 def game(sec_lst, game_lst):
+
     def word(game_lst):
         global encrypted_word
         encrypted_word = Label(game_canvas, text=''.join(game_lst), font=("Comic Sans MS", 24, "bold"),
@@ -154,6 +152,8 @@ def game(sec_lst, game_lst):
             canvas_los.place(x=0, y=0)
 
         let = en_let.get()
+        if mistake_count > 11:
+            mistake_count = 0
         if let in sec_lst:
             for i, sym in enumerate(sec_lst):
                 if sym == let:
@@ -164,6 +164,7 @@ def game(sec_lst, game_lst):
             mistake_count += 1
             mistake(mistake_count)
             if mistake_count == 11:
+                mistake_count += 1
                 losing()
 
         encrypted_word.destroy()
