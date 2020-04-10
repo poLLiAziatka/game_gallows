@@ -32,7 +32,7 @@ coor_line = [[100, 50, 100, 300], [100, 50, 230, 50], [100, 80, 130, 50], [70, 3
 mistake_count = 0
 root = Tk()
 root.title("Виселица")
-root.geometry('720x480+250+100')
+root.geometry('950x480+250+100')
 
 
 def main():
@@ -60,7 +60,6 @@ def main():
 
     # Радиокнопки для выбора темы
     r_var = IntVar()
-    r_var.set(1)
     i = 0  # для размещения кнопок
     j = 0  # для значений кнопок
 
@@ -96,7 +95,6 @@ def game(sec_lst, game_lst):
         global mistake_count
 
         def victory():
-            mistake_count = 0
 
             # Нажали "Сыграть еще раз"
             def change_win(event):
@@ -112,11 +110,11 @@ def game(sec_lst, game_lst):
 
                 main()
 
-            canvas_win = Canvas(root, bg="white", width=720, height=480)
+            canvas_win = Canvas(root, bg="white", width=920, height=480)
             label_win = Label(text="Вы победили", font=("Comic Sans MS", 72), fg='black')
-            label_win.place(x=10, y=200)
+            label_win.place(x=50, y=200)
             button_alive = Button(text="Сыграть еще раз")
-            button_alive.place(x=360, y=460)
+            button_alive.place(x=360, y=400)
             button_alive.bind('<Button-1>', change_win)
             canvas_win.place(x=0, y=0)
 
@@ -130,7 +128,6 @@ def game(sec_lst, game_lst):
                                         width=5)
 
         def losing():
-            mistake_count = 0
 
             # Нажали "Попробовать еще раз"
             def change_los(event):
@@ -146,7 +143,7 @@ def game(sec_lst, game_lst):
 
                 main()
 
-            canvas_los = Canvas(root, bg="red", width=720, height=480)
+            canvas_los = Canvas(root, bg="red", width=950, height=480)
             label_dead = Label(canvas_los, text="you died", font=("Comic Sans MS", 72), fg='black',
                                bg='red')
             label_dead.place(x=200, y=200)
@@ -176,12 +173,12 @@ def game(sec_lst, game_lst):
     game_canvas.pack()
     word(game_lst)
     en_let = Entry(width=1)
-    en_let.place(x=430, y=400)
+    en_let.place(x=430, y=350)
     button_ok = Button(game_canvas, text="ok")
-    button_ok.place(x=450, y=400)
+    button_ok.place(x=450, y=350)
     label_info = Label(game_canvas,
                        text="Введите одну любую букву, которая как вы считаете есть в этом слове: ")
-    label_info.place(x=200, y=350)
+    label_info.place(x=200, y=300)
     button_ok.bind('<Button-1>', change_ok)
 
 
