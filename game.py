@@ -36,6 +36,7 @@ root.geometry('950x480+250+100')
 
 
 def main():
+
     # нажали на "Начать игру"
     def change(event):
         theme = str(lst_theme[r_var.get()])
@@ -64,7 +65,7 @@ def main():
     j = 0  # для значений кнопок
 
     for theme in lst_theme:
-        radio_theme = Radiobutton(root, text=theme, variable="r_var", value=j)
+        radio_theme = Radiobutton(root, text=theme, variable=r_var, value=j)
         radio_theme.place(x=510, y=150 + i)
         i += 20
         j += 1
